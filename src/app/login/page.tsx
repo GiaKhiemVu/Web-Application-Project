@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import LoginForm from './loginForm';
-import UserLoginData from '../type/user';
+import { UserLoginData } from '../../type/user';
 
 const Login = () => {
     const [user, setUser] = useState(new UserLoginData(null, null))

@@ -1,7 +1,8 @@
 import { Button, Card, FormControl, Input, InputLabel, Link } from '@mui/material';
 import React, { useState } from 'react';
-import Iconify from '../component/Iconify';
-import UserLoginData from '../type/user';
+import { FormIconify } from '../../component/Iconify';
+import { UserLoginData } from '../../type/user';
+import { loginRoute } from '../../route';
 
 type SubmitFunction = (userData: UserLoginData) => void;
 
@@ -26,8 +27,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ submit }) => {
             <Card sx={{display: 'flex', flexDirection: 'column', padding:"20px", border:2, borderRadius:'20px', height: '400px', width: '300px'}}>
                 <h1 style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Login</h1>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <Iconify icon="mdi:account-outline" sx={{border: 1, borderRadius:'50px', width: '2em', height: '2em',
-                    marginTop: '10px', marginRight: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center',}}/>
+                    <FormIconify icon="mdi:account-outline"/>
                     <FormControl>
                         <InputLabel htmlFor="accountInput">Account</InputLabel>
                         <Input 
@@ -39,8 +39,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ submit }) => {
                     </FormControl><br/>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', paddingTop: '10px' }}>
-                    <Iconify icon="material-symbols:key-outline" sx={{border: 1, borderRadius:'50px', width: '2em', height: '2em',
-                    marginTop: '10px', marginRight: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center',}}/>
+                    <FormIconify icon="material-symbols:key-outline"/>
                     <FormControl>
                         <InputLabel htmlFor="passwordInput">Password</InputLabel>
                         <Input 
@@ -59,8 +58,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ submit }) => {
                 >
                     Submit
                 </Button><br/>
-                <div style={{ marginTop: 'auto', marginLeft: 'auto' }}>
-                    <Link sx={{textDecoration: 'none', }}>Forgot your password?</Link>
+                <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row'}}>
+                    <Link href={loginRoute.registerPage} sx={{textDecoration: 'none', marginRight: 'auto' }}>Register</Link>
+                    <Link href={loginRoute.recoverPage} sx={{textDecoration: 'none', marginLeft: 'auto' }}>Forgot password</Link>
                 </div>
             </Card>
         </form>
