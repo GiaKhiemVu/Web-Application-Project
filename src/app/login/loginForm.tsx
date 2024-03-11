@@ -24,7 +24,17 @@ const LoginForm: React.FC<LoginFormProps> = ({ submit }) => {
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}} 
             onSubmit={handleSubmit}
         >
-            <Card sx={{display: 'flex', flexDirection: 'column', padding:"20px", border:2, borderRadius:'20px', height: '400px', width: '300px'}}>
+            <Card sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                padding: "30px",
+                border: 2,
+                borderRadius: '50px',
+                width: '300px',
+                height: '400px',
+                boxShadow: '0px 0px 30px rgba(0, 0, 0, 0.7)',
+                // backgroundImage: 'linear-gradient(to top right, #03fcfc, #0356fc )', // Gradient background
+            }}>    
                 <h1 style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Login</h1>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <FormIconify icon="mdi:account-outline"/>
@@ -35,6 +45,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ submit }) => {
                             required
                             value={account}
                             onChange={(e) => setAccount(e.target.value)}
+                            style={{width: '230px'}}
                         />
                     </FormControl><br/>
                 </div>
@@ -48,12 +59,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ submit }) => {
                             required
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            style={{width: '230px'}}
                         />
                     </FormControl><br/>
                 </div>
                 <Button 
                     variant='contained' 
-                    sx={{bgcolor: 'black', margin: '40px'}} 
+                    sx={{bgcolor: 'black', margin: '40px', borderRadius: '20px'}} 
                     type='submit'
                 >
                     Submit

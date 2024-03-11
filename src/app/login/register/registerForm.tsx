@@ -72,11 +72,21 @@ const RegisterForm: React.FC<LoginFormProps> = ({ submit }) => {
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px'}} 
             onSubmit={handleSubmit}
         >
-            <Card sx={{display: 'flex', flexDirection: 'column', padding:"30px", border:2, borderRadius:'20px', height: '550px', width: '500px'}}>
+           <Card sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                padding: "30px",
+                border: 2,
+                borderRadius: '50px',
+                height: '550px',
+                width: '500px',
+                boxShadow: '0px 0px 30px rgba(0, 0, 0, 0.7)',
+                // backgroundImage: 'linear-gradient(to top right, #03fcfc, #0356fc )', // Gradient background
+            }}>
                 <h1 style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Register</h1>
                 <div style={{ display: 'flex', alignItems: 'center', flexFlow: 'row' }}>
                     <FormIconify icon="mdi:account-outline"/>
-                    <Box sx={{ paddingRight: '10px'}}>
+                    <Box sx={{ paddingRight: '10px', }}>
                         <FormControl margin='normal'>
                             <InputLabel htmlFor="FNameInput">First Name</InputLabel>
                             <Input 
@@ -99,9 +109,9 @@ const RegisterForm: React.FC<LoginFormProps> = ({ submit }) => {
                         </FormControl>
                     </Box>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', paddingTop: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', paddingTop: '10px',  }}>
                     <FormIconify icon="ic:outline-email"/>
-                    <Box sx={{ paddingRight: '10px'}}>
+                    <Box sx={{ paddingRight: '10px', width:'400px'}}>
                         <FormControl margin='normal'>
                             <InputLabel htmlFor="EmailInput">Email</InputLabel>
                             <Input 
@@ -110,6 +120,7 @@ const RegisterForm: React.FC<LoginFormProps> = ({ submit }) => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 error={error.email}
+                                style={{width:'400px'}}
                             />
                             {error.email && <Typography variant="caption" color="error">Please enter a valid email address.</Typography>}
                         </FormControl>
@@ -125,6 +136,7 @@ const RegisterForm: React.FC<LoginFormProps> = ({ submit }) => {
                                 required
                                 value={account}
                                 onChange={(e) => setAccount(e.target.value)}
+                                style={{width:'400px'}}
                             />
                         </FormControl>
                     </Box>
@@ -145,9 +157,9 @@ const RegisterForm: React.FC<LoginFormProps> = ({ submit }) => {
                         </FormControl>
                         {error.password && <Typography variant="caption" color="error">8 characters required.</Typography>}
                     </Box>
-                    <Box sx={{ paddingRight: '10px'}}>
+                    <Box sx={{ paddingRight: '10px', maxWidth:"200px"}}>
                         <FormControl margin='normal'>
-                            <InputLabel htmlFor="rePasswordInput">Rewrite Password</InputLabel>
+                            <InputLabel htmlFor="rePasswordInput">Password confirmation</InputLabel>
                             <Input 
                                 id="rePasswordInput"
                                 type="password" 
@@ -161,13 +173,14 @@ const RegisterForm: React.FC<LoginFormProps> = ({ submit }) => {
                 </div>
                 <Button 
                     variant='contained' 
-                    sx={{bgcolor: 'black', margin: '40px'}} 
+                    sx={{bgcolor: 'black', margin: '40px', borderRadius: '20px',}} 
                     type='submit'
                 >
                     {isLoading?<FormIconify icon='line-md:loading-twotone-loop' style={{border: 0}}/>:'Submit'}
                 </Button><br/>
-                <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row'}}>
-                    <Link href={loginRoute.loginPage} sx={{textDecoration: 'none', marginLeft: 'auto' }}>Already have account</Link>
+                <div style={{ margin: 'auto', display: 'flex', flexDirection: 'row'}}>
+                    <Typography>Already have account? </Typography>
+                    <Link href={loginRoute.loginPage} sx={{textDecoration: 'none', paddingLeft:'6px', paddingTop:'2px', fontWeight: 'bold',}}>Login</Link>
                 </div>
             </Card>
         </form>

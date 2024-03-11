@@ -6,6 +6,10 @@ class UserLoginData {
         this.account = account
         this.password = password
     }
+
+    toString(){
+        return String({account: this.account,password: this.password})
+    }
 }
 
 class UserRegisterData {
@@ -28,7 +32,6 @@ class UserRegisterData {
 export interface PersonalInfo {
     firstName: String;
     lastName: String;
-    account: String;
     email: String;
     phoneNumber: String;
 }
@@ -48,6 +51,7 @@ export interface UserData {
     status: String | null;
     department: String | null;
     permission: String;
+    account: String,
 }
 
 
