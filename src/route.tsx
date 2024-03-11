@@ -1,4 +1,5 @@
 const baseURL: String = 'http://localhost:3000/'
+const baseBackendURL: String = 'http://localhost:5000/api/'
 
 const loginRoute = {
     loginPage: baseURL+'login/',
@@ -6,4 +7,10 @@ const loginRoute = {
     recoverPage: baseURL+'login/recover',
 }
 
-export { loginRoute }
+const apiRoute = {
+    base: baseBackendURL,
+    login: baseBackendURL+'login',
+    register: baseBackendURL+'register',
+}
+
+export { loginRoute, apiRoute }

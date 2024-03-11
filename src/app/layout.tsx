@@ -16,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className} style={{overflow: 'hidden'}}>{children}</body>
+      <body 
+        className={inter.className} 
+        style={{overflow: 'hidden', backgroundImage: 'linear-gradient(to top right, #03fcfc, #fc05e4 )'}}
+      >
+        {children}
+      </body>
     </html>
   );
 }
